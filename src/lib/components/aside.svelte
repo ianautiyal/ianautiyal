@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import Icon from '$lib/components/icon.svelte';
 	import profile from '$lib/profile';
+	import store from '$lib/store';
 	import {
 		mdiAccountOutline,
 		mdiBookOutline,
@@ -32,7 +33,7 @@
 	];
 </script>
 
-<aside>
+<aside class:collapsed={$store.asideOpen}>
 	<ul class="space-y-5">
 		{#each navLinks as { name, path, icon }, index (index)}
 			<li>
@@ -58,7 +59,11 @@
 
 <style lang="scss">
 	aside {
-		@apply fixed flex min-h-dvh w-20 flex-col justify-between gap-2 bg-transparent py-5 shadow shadow-gray-300 dark:shadow-gray-800;
+		@apply fixed flex min-h-dvh w-20 flex-col justify-between gap-2 bg-transparent py-6 shadow shadow-gray-300 dark:shadow-gray-800;
+
+		&.collapsed {
+			@apply -ml-20;
+		}
 
 		ul {
 			@apply flex flex-col items-center;

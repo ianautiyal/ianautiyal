@@ -2,16 +2,16 @@
 	import profile from '$lib/profile';
 </script>
 
-<div class="container mx-auto p-8 pl-28">
-	<div
-		class="border-b border-gray-300 after:-mb-px after:block after:w-1/4 after:border-b after:border-primary-500 after:content-['']"
-	>
-		<h2 class="font-serif text-3xl font-bold">About me</h2>
-		<p class="mb-3 opacity-60">Artist, Thinker, Creative Doer</p>
-	</div>
+<div
+	class="border-b border-gray-300 after:-mb-px after:block after:w-1/4 after:border-b after:border-primary-500 after:content-['']"
+>
+	<h2 class="font-serif text-3xl">About me</h2>
+	<p class="mb-3 opacity-60">Artist, Thinker, Creative Doer</p>
+</div>
 
-	<div class="my-8 grid grid-cols-2 items-center gap-16">
-		<div>
+<div class="my-8 grid grid-cols-1 gap-8 md:grid-cols-3">
+	<div>
+		<div class="mb-6">
 			<svg
 				version="1.1"
 				viewBox="0 0 400 570"
@@ -24,29 +24,79 @@
 				/></svg
 			>
 		</div>
-		<div class="space-y-12">
-			<div>
-				<h4 class="mb-4 font-serif text-3xl font-bold">I am a Freelance Developer</h4>
-				<p class="text-justify leading-8">
-					More than 7 years of experience in software development and deployment. Created high
-					loaded, real-time web applications, complex back-end management systems including content
-					management, chats, customer relations and communication interfaces. The projects based on
-					conjunction various web development technologies.
-				</p>
-			</div>
-			<div>
-				<div
-					class="mb-6 border-b border-gray-300 after:-mb-px after:block after:w-1/4 after:border-b after:border-primary-500 after:content-['']"
-				>
-					<h2 class="mb-2 font-serif text-2xl">Skills</h2>
-				</div>
-				<div class="grid grid-cols-3 items-center gap-6">
-					{#each profile.skills as { label, items }}
-						<h5>{label}</h5>
-						<p class="col-span-2">{items.join(', ')}</p>
-					{/each}
-				</div>
-			</div>
+		<div
+			class="mb-6 border-b border-gray-300 after:-mb-px after:block after:w-1/6 after:border-b after:border-primary-500 after:content-['']"
+		>
+			<h2 class="mb-2 font-serif text-2xl">Skills</h2>
 		</div>
+		<div class="grid grid-cols-3 items-center gap-6">
+			{#each profile.skills as { label, items }}
+				<h5>{label}</h5>
+				<p class="col-span-2">{items.join(', ')}</p>
+			{/each}
+		</div>
+	</div>
+	<div class="col-span-2">
+		<div
+			class="mb-6 border-b border-gray-300 after:-mb-px after:block after:w-1/6 after:border-b after:border-primary-500 after:content-['']"
+		>
+			<h2 class="mb-2 font-serif text-2xl">I am a Freelance Developer</h2>
+		</div>
+		<p class="mb-6">
+			Hello, I'm Ajay Nautiyal, a seasoned Lead Developer with 7+ years of immersive experience in
+			the dynamic world of software development. My journey began with a passion for coding, and
+			over the years, I've evolved into a strategic leader driving innovative solutions.
+		</p>
+
+		<h4 class="mb-1 font-serif text-xl">Technical Expertise:</h4>
+		<p class="mb-6">
+			With proficiency in a diverse tech stack including Python, Typescript, PHP and Dart, I've
+			successfully led teams in the creation of robust, scalable applications. My commitment to
+			staying on the cutting edge of technology ensures that the solutions I architect not only meet
+			but exceed industry standards.
+		</p>
+
+		<h4 class="mb-1 font-serif text-xl">Leadership and Collaboration:</h4>
+		<p class="mb-6">
+			I thrive in collaborative environments, fostering teamwork and mentoring fellow developers to
+			deliver outstanding results. Agile methodologies are at the core of my approach, allowing me
+			to adapt swiftly to evolving project requirements while maintaining a keen focus on quality.
+		</p>
+
+		<h4 class="mb-1 font-serif text-xl">Problem Solver:</h4>
+		<p class="mb-6">
+			My journey in the tech world has been a journey of solving intricate problems. From
+			conceptualizing innovative solutions to troubleshooting complex issues, I find joy in the
+			challenge and satisfaction in the resolution.
+		</p>
+
+		<h4 class="mb-1 font-serif text-xl">Passion for Learning:</h4>
+		<p class="mb-6">
+			In this ever-evolving field, I'm a firm believer in continuous learning. I embrace new
+			technologies and methodologies, attending conferences, participating in online communities,
+			and consistently updating my skill set to ensure that I remain at the forefront of the
+			industry.
+		</p>
+
+		<h4 class="mb-1 font-serif text-xl">Proven Track Record:</h4>
+		<p class="mb-6">
+			Over the years, I've spearheaded numerous projects, from conception to successful
+			implementation. My portfolio showcases a diverse range of applications, each a testament to my
+			commitment to delivering high-quality software that not only meets client expectations but
+			exceeds them.
+		</p>
+
+		<h4 class="mb-1 font-serif text-xl">Let's Connect:</h4>
+		<p class="mb-6">
+			I'm always open to new opportunities, collaborations, and discussions about the exciting
+			possibilities in the tech realm. Whether you're interested in my past projects, want to
+			discuss potential collaborations, or simply share insights, feel free to reach out. Let's
+			connect and explore the limitless possibilities of technology together.
+		</p>
+
+		<p class="mb-6">
+			Thank you for visiting my portfolio. I look forward to the prospect of working together and
+			contributing to the success of your next project.
+		</p>
 	</div>
 </div>
