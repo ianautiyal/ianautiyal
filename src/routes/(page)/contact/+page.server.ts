@@ -1,5 +1,4 @@
-import { env } from '$env/dynamic/private';
-import { validateFormData, writeToSpreadsheet } from '$lib';
+import { validateFormData } from '$lib';
 import { fail, type Actions } from '@sveltejs/kit';
 
 export const actions = {
@@ -23,12 +22,6 @@ export const actions = {
 
 		if (errors) {
 			return fail(400, { errors });
-		}
-
-		try {
-			await writeToSpreadsheet(env.SPREADSHEET_ID, env.SPREADSHEET_RANGE, [name, email, message]);
-		} catch (_) {
-			return fail(500, { error: 'Failed to send message.' });
 		}
 
 		return { success: 'I appreciate you contacting us me. I will get back to you shortly.' };
