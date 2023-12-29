@@ -6,25 +6,38 @@ export function validateFormData<K extends string>(
 
 	for (const field in rules) {
 		const error = [];
+		const value = data[field];
 
 		for (const _rule of rules[field]) {
 			const [rule, params] = _rule.split(':');
-			if (rule === 'required' && !data[field]) {
-				error.push(`The ${field} field is required.`);
-			} else if (
-				rule === 'email' &&
-				typeof data[field] === 'string' &&
-				!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data[field])
-			) {
-				error.push(`The ${field} field must be a valid email address.`);
-			} else if (rule === 'string' && typeof data[field] !== 'string') {
-				error.push(`The ${field}  field must be a string.`);
-			} else if (
-				rule === 'maxLength' &&
-				typeof data[field] === 'string' &&
-				data[field].length > parseInt(params)
-			) {
-				error.push(`The ${field} field must not be greater than ${params} characters.`);
+
+			switch (rule) {
+				case 'required':
+					if (!value) {
+						error.push(`The ${field} field is required.`);
+					}
+					break;
+
+				case 'email':
+					if (typeof value === 'string' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+						error.push(`The ${field} field must be a valid email address.`);
+					}
+					break;
+
+				case 'string':
+					if (typeof value !== 'string') {
+						error.push(`The ${field} field must be a string.`);
+					}
+					break;
+
+				case 'maxLength':
+					if (typeof value === 'string' && value.length > parseInt(params)) {
+						error.push(`The ${field} field must not be greater than ${params} characters.`);
+					}
+					break;
+
+				default:
+					break;
 			}
 		}
 

@@ -12,14 +12,12 @@
 </div>
 <div class="grid grid-cols-1 gap-4 py-6 md:grid-cols-2 lg:grid-cols-3">
 	{#await data.posts}
-		{#each [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] as _}
+		{#each [0, 1, 2, 3, 4, 5, 6] as _}
 			<div
 				role="status"
-				class="max-w-sm animate-pulse rounded border border-gray-200 p-4 shadow md:p-6 dark:border-gray-700"
+				class="animate-pulse rounded border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
 			>
-				<div
-					class="mb-4 flex h-48 items-center justify-center rounded bg-gray-300 dark:bg-gray-700"
-				>
+				<div class="flex h-48 items-center justify-center bg-gray-300 dark:bg-gray-700">
 					<svg
 						class="h-10 w-10 text-gray-200 dark:text-gray-600"
 						aria-hidden="true"
@@ -33,18 +31,21 @@
 						<path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
 					</svg>
 				</div>
-				<div class="mb-4 h-2.5 w-48 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-				<div class="mb-2.5 h-2 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-				<div class="mb-2.5 h-2 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-				<div class="h-2 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-				<span class="sr-only">Loading...</span>
+				<div class="p-5">
+					<div class="mb-4 h-3.5 w-full rounded-full bg-gray-200 dark:bg-gray-700"></div>
+					<div class="mb-4 h-3.5 w-1/2 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+					<div class="mb-3 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+					<div class="mb-3 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+					<div class="mb-3 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+					<div class="h-2.5 w-3/4 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+				</div>
 			</div>
 		{/each}
-	{:then posts}
-		{#each posts.items as post}
+	{:then { items }}
+		{#each items as post}
 			{@const url = `/blog/${post.slug}`}
 			<div
-				class="max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
+				class="rounded border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
 			>
 				<a href={url}>
 					<img class="rounded-t-lg" src={post.thumbnail} alt={post.title} />
@@ -58,7 +59,7 @@
 					<p class="mb-3 text-gray-700 dark:text-gray-400">{post.overview.substring(0, 150)}...</p>
 					<a
 						href={url}
-						class="inline-flex items-center rounded-lg bg-primary-700 px-3 py-2 text-center text-sm text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+						class="inline-flex items-center rounded bg-primary-700 px-3 py-2 text-center text-sm text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
 					>
 						Read more
 					</a>

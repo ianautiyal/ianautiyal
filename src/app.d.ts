@@ -69,4 +69,13 @@ export interface Post extends RecordModel {
 	thumbnail: string;
 }
 
+export interface Project extends RecordModel {
+	title: string;
+	slug: string;
+	overview: string;
+	description: string;
+	thumbnail: string;
+	images: string[];
+}
+
 export {};
