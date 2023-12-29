@@ -37,7 +37,7 @@
 	<ul class="space-y-5">
 		{#each navLinks as { name, path, icon }, index (index)}
 			<li>
-				<a href={path} class="page-link" class:active={path === $page.url.pathname}>
+				<a href={path} class="page-link" class:active={$page.url.pathname.startsWith(path)}>
 					<Icon path={icon} size={1.5} />
 					<span class="text-xs">{name}</span>
 				</a>

@@ -1,9 +1,11 @@
-// See https://kit.svelte.dev/docs/types#app
-// for information about these interfaces
+import PocketBase, { type RecordModel } from 'pocketbase';
+
 declare global {
 	namespace App {
 		// interface Error {}
-		// interface Locals {}
+		interface Locals {
+			pb: PocketBase;
+		}
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}
@@ -57,6 +59,14 @@ export interface Profile {
 	employments: Employment[];
 	educations: Education[];
 	social: Social;
+}
+
+export interface Post extends RecordModel {
+	title: string;
+	slug: string;
+	overview: string;
+	content: string;
+	thumbnail: string;
 }
 
 export {};
