@@ -10,9 +10,9 @@
 	<h2 class="font-serif text-3xl font-bold">Portfolio</h2>
 	<p class="mb-3 opacity-60">A collection of my creativity</p>
 </div>
-<div class="grid grid-cols-1 gap-4 py-6 md:grid-cols-2 lg:grid-cols-3">
+<div class="grid grid-cols-1 gap-4 pt-8 md:grid-cols-2 lg:grid-cols-3">
 	{#await data.projects}
-		{#each [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] as _}
+		{#each [0, 1, 2, 3, 4, 5] as _}
 			<div
 				role="status"
 				class="animate-pulse rounded border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
@@ -48,7 +48,7 @@
 				class="rounded border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
 			>
 				<a href={url}>
-					<img class="rounded-t-lg" src={project.thumbnail} alt={project.title} />
+					<img class="rounded-t" src={project.thumbnail} alt={project.title} />
 				</a>
 				<div class="p-5">
 					<a href={url}>

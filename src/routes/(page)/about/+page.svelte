@@ -9,7 +9,7 @@
 	<p class="mb-3 opacity-60">Artist, Thinker, Creative Doer</p>
 </div>
 
-<div class="my-8 grid grid-cols-1 gap-8 md:grid-cols-3">
+<div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3">
 	<div>
 		<div class="mb-6">
 			<svg
@@ -29,7 +29,7 @@
 		>
 			<h2 class="mb-2 font-serif text-2xl">Skills</h2>
 		</div>
-		<div class="grid grid-cols-3 items-center gap-6">
+		<div class="grid grid-cols-3 items-center gap-2 md:gap-6">
 			{#each profile.skills as { label, items }}
 				<h5>{label}</h5>
 				<p class="col-span-2">{items.join(', ')}</p>
@@ -85,16 +85,7 @@
 			commitment to delivering high-quality software that not only meets client expectations but
 			exceeds them.
 		</p>
-
-		<h4 class="mb-1 font-serif text-xl">Let's Connect:</h4>
-		<p class="mb-6">
-			I'm always open to new opportunities, collaborations, and discussions about the exciting
-			possibilities in the tech realm. Whether you're interested in my past projects, want to
-			discuss potential collaborations, or simply share insights, feel free to reach out. Let's
-			connect and explore the limitless possibilities of technology together.
-		</p>
-
-		<p class="mb-6">
+		<p>
 			Thank you for visiting my portfolio. I look forward to the prospect of working together and
 			contributing to the success of your next project.
 		</p>

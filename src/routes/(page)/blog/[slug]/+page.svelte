@@ -6,7 +6,13 @@
 
 {#await data.post}
 	<div role="status" class="animate-pulse">
-		<div class="mb-4 flex h-48 items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
+		<div
+			class="mb-8 border-b border-gray-300 after:-mb-px after:block after:w-1/4 after:border-b after:border-primary-500 after:content-['']"
+		>
+			<div class="mb-4 h-5 w-3/4 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+			<div class="mb-2.5 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+		</div>
+		<div class="mb-4 flex h-96 items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
 			<svg
 				class="h-10 w-10 text-gray-200 dark:text-gray-600"
 				aria-hidden="true"
@@ -20,7 +26,6 @@
 				<path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
 			</svg>
 		</div>
-
 		{#each [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] as _}
 			<div class="mb-8">
 				<div class="mb-4 h-5 w-48 rounded-full bg-gray-200 dark:bg-gray-700"></div>
@@ -33,7 +38,7 @@
 	</div>
 {:then post}
 	<div
-		class="border-b border-gray-300 after:-mb-px after:block after:w-1/4 after:border-b after:border-primary-500 after:content-['']"
+		class="mb-8 border-b border-gray-300 after:-mb-px after:block after:w-1/4 after:border-b after:border-primary-500 after:content-['']"
 	>
 		<h2 class="font-serif text-3xl font-bold">{post.title}</h2>
 		<div class="my-2 flex justify-between">
@@ -42,7 +47,7 @@
 		</div>
 	</div>
 	<img src={post.thumbnail} alt={post.title} class="w-full" />
-	<div class="blog-content py-4">
+	<div class="blog-content pt-8">
 		{@html post.content}
 	</div>
 {:catch error}

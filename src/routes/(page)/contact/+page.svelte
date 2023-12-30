@@ -15,7 +15,20 @@
 	<p class="mb-3 opacity-60">Get In Touch With Me</p>
 </div>
 
-<div class="my-8 grid grid-cols-1 gap-16 md:grid-cols-2">
+<div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
+	<div class="md:col-span-2">
+		<div
+			class="mb-6 border-b border-gray-300 after:-mb-px after:block after:w-1/6 after:border-b after:border-primary-500 after:content-['']"
+		>
+			<h2 class="mb-2 font-serif text-xl">Let's Connect:</h2>
+		</div>
+		<p>
+			I'm always open to new opportunities, collaborations, and discussions about the exciting
+			possibilities in the tech realm. Whether you're interested in my past projects, want to
+			discuss potential collaborations, or simply share insights, feel free to reach out. Let's
+			connect and explore the limitless possibilities of technology together.
+		</p>
+	</div>
 	<div>
 		<div
 			class="mb-6 border-b border-gray-300 after:-mb-px after:block after:w-1/4 after:border-b after:border-primary-500 after:content-['']"
