@@ -78,4 +78,9 @@ export interface Project extends RecordModel {
 	images: string[];
 }
 
+export interface SEO {
+	title: string;
+	description: string;
+}
+
 export {};

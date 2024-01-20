@@ -1,3 +1,4 @@
+import svgToDataUri from 'mini-svg-data-uri';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
 
@@ -39,6 +40,25 @@ export default {
 				},
 				['*:focus']: {
 					outline: 'none'
+				},
+				['body']: {
+					backgroundRepeat: 'no-repeat',
+					backgroundAttachment: 'fixed',
+					// backgroundSize: 'contain',
+					backgroundPosition: 'center bottom',
+					backgroundImage: `url("${svgToDataUri(`<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 800 400'>
+					<defs>
+						<linearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'>
+							<stop offset='0' stop-color='${theme('colors.gray.500')}' stop-opacity='0' />
+							<stop offset='1' stop-color='${theme('colors.gray.500')}' stop-opacity='0.5' />
+						</linearGradient>
+					</defs>
+					<g fill-opacity='0.1'>
+						<circle fill='url(#b)' cx='267.5' cy='61' r='300' />
+						<circle fill='url(#b)' cx='532.5' cy='61' r='300' />
+						<circle fill='url(#b)' cx='400' cy='30' r='300' />
+					</g>
+				</svg>`)}")`
 				}
 			});
 		})

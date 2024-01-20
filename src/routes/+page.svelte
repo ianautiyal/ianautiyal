@@ -1,10 +1,11 @@
 <script lang="ts">
 	import profile from '$lib/profile';
+	import seo from '$lib/seo';
 </script>
 
 <svelte:head>
-	<title>{profile.name} - {profile.bio}</title>
-	<meta name="description" content={profile.bio} />
+	<title>{seo.home.title} | {profile.name}</title>
+	<meta name="description" content={seo.home.description} />
 </svelte:head>
 
 <div>

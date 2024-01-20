@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import profile from '$lib/profile';
+	import seo from '$lib/seo';
 </script>
 
 <svelte:head>
-	<title>{profile.name} - {profile.bio}</title>
-	<meta name="description" content={profile.bio} />
+	<title>{seo.error.title} | {profile.name}</title>
+	<meta name="description" content={seo.error.description} />
 </svelte:head>
 
 <div class="flex min-h-dvh flex-col items-center justify-center">

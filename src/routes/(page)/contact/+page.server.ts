@@ -27,8 +27,6 @@ export const actions = {
 		try {
 			await locals.pb.collection('contacts').create({ name, email, message });
 		} catch (_) {
-			console.log(_);
-
 			return fail(500, { error: 'Failed to send message.' });
 		}
 

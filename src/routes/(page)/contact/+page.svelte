@@ -2,11 +2,17 @@
 	import { enhance } from '$app/forms';
 	import Icon from '$lib/components/icon.svelte';
 	import profile from '$lib/profile';
+	import seo from '$lib/seo';
 	import { mdiCellphone, mdiEmail, mdiMapMarker, mdiWeb } from '@mdi/js';
 	import type { ActionData } from './$types';
 
 	export let form: ActionData;
 </script>
+
+<svelte:head>
+	<title>{seo.contact.title} | {profile.name}</title>
+	<meta name="description" content={seo.contact.description} />
+</svelte:head>
 
 <div
 	class="border-b border-gray-300 after:-mb-px after:block after:w-1/4 after:border-b after:border-primary-500 after:content-['']"
@@ -117,10 +123,10 @@
 <style lang="scss">
 	input,
 	textarea {
-		@apply block w-full rounded border border-gray-300 bg-gray-50 p-3 focus:border-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400 dark:focus:border-primary-500;
+		@apply block w-full rounded border border-gray-300 bg-white p-3 focus:border-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400 dark:focus:border-primary-500;
 	}
 
 	button {
-		@apply w-full rounded bg-primary-700 px-5 py-3 text-center font-medium text-white hover:bg-primary-800 focus:outline-none sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700;
+		@apply w-full rounded bg-primary-500 px-5 py-3 text-center font-medium text-white hover:bg-primary-600 focus:outline-none sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700;
 	}
 </style>

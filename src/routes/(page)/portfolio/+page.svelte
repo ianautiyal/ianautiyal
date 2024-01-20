@@ -1,8 +1,15 @@
 <script lang="ts">
+	import profile from '$lib/profile';
+	import seo from '$lib/seo';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 </script>
+
+<svelte:head>
+	<title>{seo.portfolio.title} | {profile.name}</title>
+	<meta name="description" content={seo.portfolio.description} />
+</svelte:head>
 
 <div
 	class="border-b border-gray-300 after:-mb-px after:block after:w-1/4 after:border-b after:border-primary-500 after:content-['']"

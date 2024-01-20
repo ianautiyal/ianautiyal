@@ -1,8 +1,14 @@
 <script>
 	import Icon from '$lib/components/icon.svelte';
 	import profile from '$lib/profile';
+	import seo from '$lib/seo';
 	import { mdiBriefcase, mdiSchool } from '@mdi/js';
 </script>
+
+<svelte:head>
+	<title>{seo.resume.title} | {profile.name}</title>
+	<meta name="description" content={seo.resume.description} />
+</svelte:head>
 
 <div
 	class="border-b border-gray-300 after:-mb-px after:block after:w-1/4 after:border-b after:border-primary-500 after:content-['']"
@@ -10,20 +16,20 @@
 	<h2 class="font-serif text-3xl font-bold">Resume</h2>
 	<p class="mb-3 opacity-60">7+ Years of Experience</p>
 </div>
-<div class="mt-8 grid grid-cols-1 gap-8">
+<div class="mt-8 grid grid-cols-1 gap-16">
 	<div>
 		<div
 			class="mb-6 border-b border-gray-300 after:-mb-px after:block after:w-1/6 after:border-b after:border-primary-500 after:content-['']"
 		>
 			<h2 class="mb-2 font-serif text-xl">Employments</h2>
 		</div>
-		<ol class="relative space-y-4 border-s border-gray-200 dark:border-gray-700">
+		<ol class="relative space-y-10 border-s border-gray-200 dark:border-gray-700">
 			{#each profile.employments as { title, company, location, description, startDate, endDate }, index (index)}
 				<li class="ms-8">
 					<span
-						class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800"
+						class="absolute -start-3 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800"
 					>
-						<Icon path={mdiBriefcase} size={0.75} class="text-primary-500" />
+						<Icon path={mdiBriefcase} class="text-primary-500" />
 					</span>
 					<h4 class="text-lg font-bold">{title}</h4>
 					<p class="mb-2 text-sm font-normal text-gray-400 dark:text-gray-500">{company}</p>
@@ -42,13 +48,13 @@
 		>
 			<h2 class="mb-2 font-serif text-xl">Educations</h2>
 		</div>
-		<ol class="relative space-y-4 border-s border-gray-200 dark:border-gray-700">
+		<ol class="relative space-y-10 border-s border-gray-200 dark:border-gray-700">
 			{#each profile.educations as { title, college, location, description, startYear, endYear }, index (index)}
 				<li class="ms-8">
 					<span
-						class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800"
+						class="absolute -start-3 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800"
 					>
-						<Icon path={mdiSchool} size={0.75} class="text-primary-500" />
+						<Icon path={mdiSchool} class="text-primary-500" />
 					</span>
 					<h4 class="text-lg font-bold">{title}</h4>
 					<p class="mb-2 text-sm font-normal text-gray-400 dark:text-gray-500">{college}</p>
