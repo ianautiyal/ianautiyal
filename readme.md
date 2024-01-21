@@ -5,8 +5,8 @@ Python|TypeScript|Dart Developer
 --------------------------------
 
 * 🌍  I'm based in Dehradun, India
-* 🖥️  See my portfolio at [https://aju.nautiyal.co.in](http://aju.nautiyal.co.in)
-* ✉️  You can contact me at [aju@nautiyal.co.in](mailto:aju@nautiyal.co.in)
+* 🖥️  See my portfolio at [https://aju.nautiyal.dev](http://aju.nautiyal.dev)
+* ✉️  You can contact me at [aju@nautiyal.dev](mailto:aju@nautiyal.dev)
 * 🧠  I'm learning Flutter
 
 <a href="https://www.twitter.com/ianautiyal" target="_blank" rel="noreferrer"><img
