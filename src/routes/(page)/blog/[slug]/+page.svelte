@@ -1,8 +1,16 @@
 <script lang="ts">
+	import profile from '$lib/profile';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 </script>
+
+<svelte:head>
+	{#await data.post then post}
+		<title>{post.title} | {profile.name}</title>
+		<meta name="description" content={post.overview} />
+	{/await}
+</svelte:head>
 
 {#await data.post}
 	<div role="status" class="animate-pulse">
@@ -75,5 +83,8 @@
 	}
 	.blog-content :global(h6) {
 		@apply mb-1 font-serif text-sm font-bold;
+	}
+	.blog-content :global(pre) {
+		@apply mb-4 overflow-x-auto p-4 bg-gray-100 dark:bg-gray-800;
 	}
 </style>

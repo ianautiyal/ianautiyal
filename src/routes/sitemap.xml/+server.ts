@@ -15,12 +15,8 @@ export const GET: RequestHandler = async ({ url, locals }) => {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
         ${sitemapItem(`${baseUrl}/`, 'daily', 1)}
         ${pages.map((page) => sitemapItem(`${baseUrl}/${page}`, 'daily', 0.8)).join('\r')}
-        ${posts
-					.map((post) => sitemapItem(`${baseUrl}/blog/${post.slug}`, 'weekly', 0.5))
-					.join('\r')}
-        ${projects
-					.map((project) => sitemapItem(`${baseUrl}/portfolio/${project.slug}`, 'weekly', 0.5))
-					.join('\r')}
+        ${posts.map((post) => sitemapItem(`${baseUrl}/blog/${post.slug}`, 'weekly', 0.5)).join('\r')}
+        ${projects.map((project) => sitemapItem(`${baseUrl}/portfolio/${project.slug}`, 'weekly', 0.5)).join('\r')}
     </urlset>`);
 
 	response.headers.set('Cache-Control', 'max-age=0, s-maxage=3600');

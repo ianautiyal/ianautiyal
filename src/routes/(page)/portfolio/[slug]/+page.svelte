@@ -1,8 +1,17 @@
 <script lang="ts">
+	import Carousel from '$lib/components/carousel.svelte';
+	import profile from '$lib/profile';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 </script>
+
+<svelte:head>
+	{#await data.project then project}
+		<title>{project.title} | {profile.name}</title>
+		<meta name="description" content={project.overview} />
+	{/await}
+</svelte:head>
 
 {#await data.project}
 	<div role="status" class="animate-pulse">
@@ -43,10 +52,10 @@
 		<h2 class="font-serif text-3xl font-bold">{project.title}</h2>
 		<div class="my-2 flex justify-between">
 			<p class="opacity-60">{project.slug}</p>
-			<p class="opacity-60">{project.created}</p>
+			<p class="opacity-60">{new Date(project.created).toDateString()}</p>
 		</div>
 	</div>
-	<img src={project.thumbnail} alt={project.title} class="w-full" />
+	<Carousel items={project.images} />
 	<div class="blog-content pt-8">
 		{@html project.description}
 	</div>

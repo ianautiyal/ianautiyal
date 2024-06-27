@@ -127,6 +127,6 @@
 	}
 
 	button {
-		@apply w-full rounded bg-primary-500 px-5 py-3 text-center font-medium text-white hover:bg-primary-600 focus:outline-none sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700;
+		@apply w-full rounded bg-primary-500 px-5 py-3 text-center font-medium text-white hover:bg-primary-600 focus:outline-none dark:bg-primary-600 dark:hover:bg-primary-700 sm:w-auto;
 	}
 </style>

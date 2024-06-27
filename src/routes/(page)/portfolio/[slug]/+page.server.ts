@@ -9,7 +9,8 @@ export const load: PageServerLoad = ({ locals, params }) => {
 			.getFirstListItem<Project>(`slug='${params.slug}'`)
 			.then(({ thumbnail, ...item }) => ({
 				...item,
-				thumbnail: locals.pb.files.getUrl(item, thumbnail)
+				thumbnail: locals.pb.files.getUrl(item, thumbnail),
+				images: item.images.map((image) => locals.pb.files.getUrl(item, image))
 			}))
 			.catch(() => error(404, 'Project not found'))
 	};

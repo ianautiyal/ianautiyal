@@ -37,7 +37,7 @@
 					<time class="mb-2 block text-sm text-gray-400 dark:text-gray-500">
 						From {startDate} to {endDate ? endDate : 'present'}
 					</time>
-					<p class="text-gray-500 max-sm:text-sm dark:text-gray-400">{description}</p>
+					<p class="text-gray-500 dark:text-gray-400 max-sm:text-sm">{description}</p>
 				</li>
 			{/each}
 		</ol>
@@ -62,7 +62,7 @@
 					<time class="mb-2 block text-sm text-gray-400 dark:text-gray-500">
 						From {startYear} to {endYear ? endYear : 'present'}
 					</time>
-					<p class="text-gray-500 max-sm:text-sm dark:text-gray-400">{description}</p>
+					<p class="text-gray-500 dark:text-gray-400 max-sm:text-sm">{description}</p>
 				</li>
 			{/each}
 		</ol>
