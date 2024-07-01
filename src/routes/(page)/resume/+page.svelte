@@ -27,7 +27,7 @@
 			{#each profile.employments as { title, company, location, description, startDate, endDate }, index (index)}
 				<li class="ms-8">
 					<span
-						class="absolute -start-3 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800"
+						class="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800"
 					>
 						<Icon path={mdiBriefcase} class="text-primary-500" />
 					</span>
@@ -52,7 +52,7 @@
 			{#each profile.educations as { title, college, location, description, startYear, endYear }, index (index)}
 				<li class="ms-8">
 					<span
-						class="absolute -start-3 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800"
+						class="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800"
 					>
 						<Icon path={mdiSchool} class="text-primary-500" />
 					</span>

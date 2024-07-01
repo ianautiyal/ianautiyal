@@ -85,6 +85,6 @@
 		@apply mb-1 font-serif text-sm font-bold;
 	}
 	.blog-content :global(pre) {
-		@apply mb-4 overflow-x-auto p-4 bg-gray-100 dark:bg-gray-800;
+		@apply mb-4 overflow-x-auto bg-gray-100 p-4 dark:bg-gray-800;
 	}
 </style>

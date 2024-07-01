@@ -31,13 +31,23 @@
 		{ name: 'Twitter', path: profile.social.twitter, icon: mdiTwitter },
 		{ name: 'Instagram', path: profile.social.instagram, icon: mdiInstagram }
 	];
+
+	function activeLink(pageUrlPathName: string, path: string) {
+		switch (path) {
+			case '/':
+				return pageUrlPathName === path;
+
+			default:
+				return pageUrlPathName.startsWith(path);
+		}
+	}
 </script>
 
 <aside class:collapsed={$store.asideOpen}>
 	<ul class="space-y-5">
 		{#each navLinks as { name, path, icon }, index (index)}
 			<li>
-				<a href={path} class="page-link" class:active={$page.url.pathname.startsWith(path)}>
+				<a href={path} class="page-link" class:active={activeLink($page.url.pathname, path)}>
 					<Icon path={icon} size={1.5} />
 					<span class="text-xs">{name}</span>
 				</a>

@@ -1,9 +1,34 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
+	import Icon from '$lib/components/icon.svelte';
 	import profile from '$lib/profile';
 	import seo from '$lib/seo';
+	import { mdiMagnifyRemoveOutline } from '@mdi/js';
+	import type { Category } from '../../../app';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+
+	const selectedCategories = $page.url.searchParams.getAll('categories');
+
+	function categoryChange(event: Event, category: Category['name']) {
+		event.preventDefault();
+
+		const searchParams = new URLSearchParams();
+
+		if (selectedCategories.includes(category)) {
+			selectedCategories.splice(selectedCategories.indexOf(category), 1);
+		} else {
+			selectedCategories.push(category);
+		}
+
+		for (const category of selectedCategories) {
+			searchParams.append('categories', category);
+		}
+
+		goto(`${$page.url.pathname}?${searchParams.toString()}`);
+	}
 </script>
 
 <svelte:head>
@@ -17,7 +42,21 @@
 	<h2 class="font-serif text-3xl font-bold">Blogs</h2>
 	<p class="mb-3 opacity-60">A collection of my thoughts</p>
 </div>
-<div class="grid grid-cols-1 gap-4 pt-8 md:grid-cols-2 lg:grid-cols-3">
+<div class="flex justify-center gap-x-1.5 py-8">
+	{#await data.categories then categories}
+		{#each categories as category (category.id)}
+			<button
+				on:click={(e) => categoryChange(e, category.name)}
+				class={`rounded border px-3 text-xs hover:border-primary-500 hover:bg-primary-500 dark:border-primary-500 ${
+					selectedCategories.includes(category.name) ? 'bg-primary-500 text-white' : ''
+				}`}>{category.name}</button
+			>
+		{/each}
+	{:catch error}
+		<p class="text-red-500">{error.message}</p>
+	{/await}
+</div>
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 	{#await data.posts}
 		{#each [0, 1, 2, 3, 4, 5] as _}
 			<div
@@ -49,7 +88,7 @@
 			</div>
 		{/each}
 	{:then { items }}
-		{#each items as post}
+		{#each items as post (post.id)}
 			{@const url = `/blog/${post.slug}`}
 			<div
 				class="rounded border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
@@ -71,6 +110,15 @@
 						Read more
 					</a>
 				</div>
+			</div>
+		{:else}
+			<div class="col-span-3">
+				<Icon
+					path={mdiMagnifyRemoveOutline}
+					size={4}
+					class="mx-auto text-gray-200 dark:text-gray-700"
+				/>
+				<p class="text-gray-500 dark:text-gray-400 text-center text-2xl">No posts found.</p>
 			</div>
 		{/each}
 	{:catch error}

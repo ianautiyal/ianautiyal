@@ -61,6 +61,10 @@ export interface Profile {
 	social: Social;
 }
 
+export interface Category extends RecordModel {
+	name: string;
+}
+
 export interface Post extends RecordModel {
 	title: string;
 	slug: string;
