@@ -1,10 +1,11 @@
-import PocketBase, { type RecordModel } from 'pocketbase';
+import type Client from 'pocketbase';
+import { type RecordModel } from 'pocketbase';
 
 declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
-			pb: PocketBase;
+			pb: Client;
 		}
 		// interface PageData {}
 		// interface PageState {}
@@ -71,6 +72,7 @@ export interface Post extends RecordModel {
 	overview: string;
 	content: string;
 	thumbnail: string;
+	categories: string[];
 }
 
 export interface Project extends RecordModel {
@@ -80,6 +82,8 @@ export interface Project extends RecordModel {
 	description: string;
 	thumbnail: string;
 	images: string[];
+	categories: Category[];
+	attributes: Record<string, never>;
 }
 
 export interface SEO {
@@ -87,4 +91,5 @@ export interface SEO {
 	description: string;
 }
 
-export {};
+export { };
+

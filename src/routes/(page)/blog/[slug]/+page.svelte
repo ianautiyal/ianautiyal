@@ -51,7 +51,7 @@
 		<h2 class="font-serif text-3xl font-bold">{post.title}</h2>
 		<div class="my-2 flex justify-between">
 			<p class="opacity-60">{post.slug}</p>
-			<p class="opacity-60">{post.created}</p>
+			<p class="opacity-60">{new Date(post.created).toDateString()}</p>
 		</div>
 	</div>
 	<img src={post.thumbnail} alt={post.title} class="w-full" />

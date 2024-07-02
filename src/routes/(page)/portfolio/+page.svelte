@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import Icon from '$lib/components/icon.svelte';
 	import profile from '$lib/profile';
 	import seo from '$lib/seo';
+	import { mdiMagnifyRemoveOutline } from '@mdi/js';
 	import type { Category } from '../../../app';
 	import type { PageData } from './$types';
 
@@ -110,6 +112,15 @@
 						Read more
 					</a>
 				</div>
+			</div>
+		{:else}
+			<div class="col-span-3">
+				<Icon
+					path={mdiMagnifyRemoveOutline}
+					size={4}
+					class="mx-auto text-gray-200 dark:text-gray-700"
+				/>
+				<p class="text-gray-500 dark:text-gray-400 text-center text-2xl">No projects found.</p>
 			</div>
 		{/each}
 	{:catch error}

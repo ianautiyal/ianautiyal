@@ -1,15 +1,16 @@
-import PocketBase, { type RecordListOptions } from 'pocketbase';
+import type Client from 'pocketbase';
+import type { RecordListOptions } from 'pocketbase';
 import type { Category, Project } from '../../../app';
 import type { PageServerLoad } from './$types';
 
-function getCategories(pocketbase: PocketBase) {
+function getCategories(pocketbase: Client) {
 	return pocketbase.collection('categories').getFullList<Category>({
 		fields: 'collectionId,id,name',
 		sort: 'name'
 	});
 }
 
-function getProjects(pocketbase: PocketBase, categories: Category['name'][]) {
+function getProjects(pocketbase: Client, categories: Category['name'][]) {
 	const options: RecordListOptions = {
 		fields: 'collectionId,id,title,slug,thumbnail,overview',
 		sort: '-created'

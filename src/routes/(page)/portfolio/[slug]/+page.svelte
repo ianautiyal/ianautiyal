@@ -1,9 +1,19 @@
 <script lang="ts">
 	import Carousel from '$lib/components/carousel.svelte';
 	import profile from '$lib/profile';
+	import type { Category, Project } from '../../../../app';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+
+	function projectAttributeKeys(project: Project) {
+		return Object.keys(project.attributes);
+	}
+
+	function projectCategoryNames(project: Project) {
+		const categories = project.expand?.categories as Category[];
+		return categories.map((category) => category.name);
+	}
 </script>
 
 <svelte:head>
@@ -55,7 +65,35 @@
 			<p class="opacity-60">{new Date(project.created).toDateString()}</p>
 		</div>
 	</div>
-	<Carousel items={project.images} />
+	<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+		<div>
+			<Carousel items={project.images} />
+		</div>
+		<div class="px-8">
+			<div class="mb-8">
+				<h2 class="font-serif text-2xl">{project.title}</h2>
+				<p>{project.slug}</p>
+			</div>
+			<div class="mb-8">
+				<h2 class="font-serif text-2xl">Categories</h2>
+				<p>{projectCategoryNames(project).join(', ')}</p>
+			</div>
+			<div class="mb-8">
+				<h2 class="font-serif text-2xl">Attributes</h2>
+				<table class="table-auto">
+					<tbody>
+						{#each projectAttributeKeys(project) as key}
+							<tr>
+								<td>{key}</td>
+								<td class="px-4">:</td>
+								<td>{project.attributes[key]}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 	<div class="blog-content pt-8">
 		{@html project.description}
 	</div>

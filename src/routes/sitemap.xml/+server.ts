@@ -43,7 +43,7 @@ export const GET: RequestHandler = async ({ url, locals }) => {
 		siteMap.push({
 			loc: `/blog/${post.slug}`,
 			changeFreq: ChangeFreq.MONTHLY,
-			priority: Priority.NORMAL
+			priority: Priority.LOW
 		});
 	}
 
@@ -51,7 +51,7 @@ export const GET: RequestHandler = async ({ url, locals }) => {
 		siteMap.push({
 			loc: `/portfolio/${project.slug}`,
 			changeFreq: ChangeFreq.MONTHLY,
-			priority: Priority.NORMAL
+			priority: Priority.LOW
 		});
 	}
 

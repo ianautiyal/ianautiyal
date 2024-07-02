@@ -6,12 +6,17 @@ export const load: PageServerLoad = ({ locals, params }) => {
 	return {
 		project: locals.pb
 			.collection('projects')
-			.getFirstListItem<Project>(`slug='${params.slug}'`)
-			.then(({ thumbnail, ...item }) => ({
-				...item,
-				thumbnail: locals.pb.files.getUrl(item, thumbnail),
-				images: item.images.map((image) => locals.pb.files.getUrl(item, image))
-			}))
+			.getFirstListItem<Project>(`slug='${params.slug}'`, {
+				expand: 'categories',
+			})
+			.then(({ thumbnail, ...item }) => {
+				console.dir(item);
+				return {
+					...item,
+					thumbnail: locals.pb.files.getUrl(item, thumbnail),
+					images: item.images.map((image) => locals.pb.files.getUrl(item, image))
+				}
+			})
 			.catch(() => error(404, 'Project not found'))
 	};
 };
